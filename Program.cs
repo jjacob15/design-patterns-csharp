@@ -6,7 +6,10 @@ namespace designs
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            AssemblyScanner scanner = new AssemblyScanner(typeof(Program).Assembly);
+            TestCaseRunner<ITest>.Run(scanner.Matches());
+
+            Console.WriteLine("Tests complete");
         }
     }
 }
