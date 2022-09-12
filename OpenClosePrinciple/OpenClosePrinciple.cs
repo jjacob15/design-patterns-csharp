@@ -75,15 +75,14 @@ namespace designs
 
     public class SizeSpecification : ISpecification<Product>
     {
-        private Size size;
+        private Size Size { get; }
+
         public SizeSpecification(Size size)
         {
-            this.size = size;
+            Size = size;
         }
-        public bool IsSatisfied(Product p)
-        {
-            return p.Size == size;
-        }
+
+        public bool IsSatisfied(Product item) => Size == item.Size;
     }
     public class AndSpecification<T> : ISpecification<T>
     {
@@ -101,7 +100,7 @@ namespace designs
 
     [TestCase]
     public class OpenClosePrinciple : ITest
-    { 
+    {
         public void Run()
         {
             List<Product> products = new List<Product>(){ new Product("Product A", Color.Green, Size.Large),

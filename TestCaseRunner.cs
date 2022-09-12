@@ -10,7 +10,11 @@ namespace designs
         public static void Run(IEnumerable<T> types)
         {
             foreach (var type in types)
+            {
+                Console.WriteLine("---------------------------------\n");
                 type.Run();
+                Console.WriteLine("---------------------------------\n");
+            }
         }
     }
 }
